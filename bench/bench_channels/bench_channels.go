@@ -13,7 +13,7 @@ import (
 
 var (
 	num        = flag.Int("num", 10000, "num channels")
-	tcpAddress = flag.String("nsqd-tcp-address", "127.0.0.1:4150", "<addr>:<port> to connect to nsqd")
+	tcpAddress = flag.String("nsqd-tcp-address", "127.0.0.1:19850", "<addr>:<port> to connect to nsqd")
 )
 
 func main() {

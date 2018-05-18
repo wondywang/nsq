@@ -15,7 +15,7 @@ import (
 
 var (
 	runfor     = flag.Duration("runfor", 10*time.Second, "duration of time to run")
-	tcpAddress = flag.String("nsqd-tcp-address", "127.0.0.1:4150", "<addr>:<port> to connect to nsqd")
+	tcpAddress = flag.String("nsqd-tcp-address", "127.0.0.1:19850", "<addr>:<port> to connect to nsqd")
 	topic      = flag.String("topic", "sub_bench", "topic to receive messages on")
 	size       = flag.Int("size", 200, "size of messages")
 	batchSize  = flag.Int("batch-size", 200, "batch size of messages")

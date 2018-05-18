@@ -47,7 +47,7 @@ func NewOptions() *Options {
 	return &Options{
 		LogPrefix:                "[nsqadmin] ",
 		LogLevel:                 "info",
-		HTTPAddress:              "0.0.0.0:4171",
+		HTTPAddress:              "0.0.0.0:8080",
 		StatsdPrefix:             "nsq.%s",
 		StatsdCounterFormat:      "stats.counters.%s.count",
 		StatsdGaugeFormat:        "stats.gauges.%s",

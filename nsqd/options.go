@@ -97,9 +97,9 @@ func NewOptions() *Options {
 		LogPrefix: "[nsqd] ",
 		LogLevel:  "info",
 
-		TCPAddress:       "0.0.0.0:4150",
-		HTTPAddress:      "0.0.0.0:4151",
-		HTTPSAddress:     "0.0.0.0:4152",
+		TCPAddress:       "0.0.0.0:19850",
+		HTTPAddress:      "0.0.0.0:19851",
+		HTTPSAddress:     "0.0.0.0:19852",
 		BroadcastAddress: hostname,
 
 		NSQLookupdTCPAddresses: make([]string, 0),

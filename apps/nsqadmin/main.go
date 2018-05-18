@@ -26,7 +26,7 @@ var (
 	logPrefix = flagSet.String("log-prefix", "[nsqadmin] ", "log message prefix")
 	verbose   = flagSet.Bool("verbose", false, "deprecated in favor of log-level")
 
-	httpAddress = flagSet.String("http-address", "0.0.0.0:4171", "<addr>:<port> to listen on for HTTP clients")
+	httpAddress = flagSet.String("http-address", "0.0.0.0:8080", "<addr>:<port> to listen on for HTTP clients")
 
 	graphiteURL   = flagSet.String("graphite-url", "", "graphite HTTP address")
 	proxyGraphite = flagSet.Bool("proxy-graphite", false, "proxy HTTP requests to graphite")

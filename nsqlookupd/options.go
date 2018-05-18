@@ -32,8 +32,8 @@ func NewOptions() *Options {
 	return &Options{
 		LogPrefix:        "[nsqlookupd] ",
 		LogLevel:         "info",
-		TCPAddress:       "0.0.0.0:4160",
-		HTTPAddress:      "0.0.0.0:4161",
+		TCPAddress:       "0.0.0.0:19860",
+		HTTPAddress:      "0.0.0.0:19861",
 		BroadcastAddress: hostname,
 
 		InactiveProducerTimeout: 300 * time.Second,

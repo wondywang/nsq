@@ -38,8 +38,8 @@ func TestBothNSQDAndNSQLookup(t *testing.T) {
 		opts := NewOptions()
 		opts.Logger = lg.NilLogger{}
 		opts.HTTPAddress = "127.0.0.1:0"
-		opts.NSQLookupdHTTPAddresses = []string{"127.0.0.1:4161"}
-		opts.NSQDHTTPAddresses = []string{"127.0.0.1:4151"}
+		opts.NSQLookupdHTTPAddresses = []string{"127.0.0.1:19861"}
+		opts.NSQDHTTPAddresses = []string{"127.0.0.1:19851"}
 		New(opts)
 		return
 	}
@@ -112,7 +112,7 @@ func TestCrashingLogger(t *testing.T) {
 		// Test invalid log level causes error
 		opts := NewOptions()
 		opts.LogLevel = "bad"
-		opts.NSQLookupdHTTPAddresses = []string{"127.0.0.1:4161"}
+		opts.NSQLookupdHTTPAddresses = []string{"127.0.0.1:19861"}
 		_ = New(opts)
 		return
 	}

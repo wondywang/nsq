@@ -588,7 +588,7 @@ func TestHTTPconfig(t *testing.T) {
 func TestHTTPconfigCIDR(t *testing.T) {
 	opts := NewOptions()
 	opts.HTTPAddress = "127.0.0.1:0"
-	opts.NSQLookupdHTTPAddresses = []string{"127.0.0.1:4161"}
+	opts.NSQLookupdHTTPAddresses = []string{"127.0.0.1:19861"}
 	opts.Logger = test.NewTestLogger(t)
 	opts.AllowConfigFromCIDR = "10.0.0.0/8"
 	nsqadmin := New(opts)
