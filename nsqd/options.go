@@ -8,6 +8,9 @@ import (
 	"log"
 	"os"
 	"time"
+	"net"
+	"fmt"
+	"strings"
 
 	"github.com/nsqio/nsq/internal/lg"
 )
@@ -82,10 +85,42 @@ type Options struct {
 	SnappyEnabled   bool `flag:"snappy"`
 }
 
+func cleanSubNetStr(ip string) string {
+	pos := strings.Index(ip, "/")
+	if pos != -1 {
+		return ip[0:pos]
+	}
+	return ip
+}
+
+func GetNetIP(eth_name string) (string, error) {
+	info, _ := net.Interfaces()
+	for _, iface := range info {
+		if iface.Name == eth_name {
+			addrs, err := iface.Addrs()
+			if err != nil {
+				continue
+			}
+			for _, ip := range addrs {
+				return cleanSubNetStr(ip.String()), nil
+			}
+		}
+	}
+	return "", fmt.Errorf("net:%s not found", eth_name)
+}
+
 func NewOptions() *Options {
 	hostname, err := os.Hostname()
 	if err != nil {
 		log.Fatal(err)
+	}
+
+	innerip, iperr := GetNetIP("eth1")
+	if iperr != nil {
+		log.Fatal(iperr)
+	}
+	if innerip == "" {
+		innerip = hostname
 	}
 
 	h := md5.New()
@@ -100,7 +135,7 @@ func NewOptions() *Options {
 		TCPAddress:       "0.0.0.0:19850",
 		HTTPAddress:      "0.0.0.0:19851",
 		HTTPSAddress:     "0.0.0.0:19852",
-		BroadcastAddress: hostname,
+		BroadcastAddress: innerip,
 
 		NSQLookupdTCPAddresses: make([]string, 0),
 		AuthHTTPAddresses:      make([]string, 0),
